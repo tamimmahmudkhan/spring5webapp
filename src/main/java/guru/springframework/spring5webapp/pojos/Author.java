@@ -17,20 +17,25 @@ public class Author {
 	private String firstName;
 	private String lastName;
 	@ManyToMany(mappedBy = "authors")
-	private Set<Book> book = new HashSet();
+	private Set<Book> books = new HashSet();
+
+	public Author() {
+	}
 	
-	public Author() {}
-
 	public Author(String firstName, String lastName) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
-	public Author(String firstName, String lastName, Set<Book> book) {
+	public Author(String firstName, String lastName, Set<Book> books) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.book = book;
+		this.books = books;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -56,12 +61,12 @@ public class Author {
 		this.lastName = lastName;
 	}
 
-	public Set<Book> getBook() {
-		return book;
+	public Set<Book> getBooks() {
+		return books;
 	}
 
-	public void setBook(Set<Book> book) {
-		this.book = book;
+	public void setBooks(Set<Book> books) {
+		this.books = books;
 	}
 
 	@Override
@@ -91,7 +96,6 @@ public class Author {
 
 	@Override
 	public String toString() {
-		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", book=" + book + "]";
+		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", books=" + books + "]";
 	}
-
 }
